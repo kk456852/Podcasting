@@ -1,5 +1,8 @@
 import React from "react";
 import Home from "./pages/home.js"
+import PodCasting from "./pages/podcasting.js"
+import Newrelease from "./pages/newrelease.js"
+import { Breadcrumb } from 'antd';
 import "./router.css"
 import {
   BrowserRouter as Router,
@@ -17,23 +20,21 @@ import {
 // making sure things like the back button and bookmarks
 // work properly.
 
-export default function BasicExample() {
+export default function App() {
   return (
     <Router>
       <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/podcasting">PodCasting</Link>
-          </li>
-          <li>
-            <Link to="/release">NewRelease
-            </Link>
-          </li>
-        </ul>
-
+        <Breadcrumb>
+            <Breadcrumb.Item>
+                <Link to="/">Home</Link>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item>
+                <Link to="/podcasting">PodCasting</Link>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item>
+              <Link to="/release">NewRelease</Link>
+            </Breadcrumb.Item>
+        </Breadcrumb>
         <hr />
 
         {/*
@@ -46,6 +47,12 @@ export default function BasicExample() {
         <Switch>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route exact path="/podcasting">
+            <PodCasting />
+          </Route>
+          <Route exact path="/release">
+            <Newrelease />
           </Route>
         </Switch>
       </div>
